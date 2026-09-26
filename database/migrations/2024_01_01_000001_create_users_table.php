@@ -9,12 +9,12 @@ return new class extends Migration
   public function up(): void
   {
     Schema::create('users', function (Blueprint $table) {
-      $table->increments('id_user');
+      $table->id('id_user');
       $table->string('nama', 100);
       $table->string('email', 100)->unique();
-      $table->string('password', 255);
+      $table->string('password');
       $table->string('nim', 20)->unique();
-      $table->string('no_whatsapp', 20);
+      $table->string('no_whatsapp', 20)->nullable();
       $table->text('alamat')->nullable();
       $table->string('kota', 100)->nullable();
       $table->string('kode_pos', 10)->nullable();
@@ -22,10 +22,10 @@ return new class extends Migration
       $table->enum('role', ['admin', 'user'])->default('user');
       $table->enum('status_verifikasi', ['menunggu', 'terverifikasi', 'ditolak'])->default('menunggu');
       $table->boolean('status_aktif')->default(true);
-      $table->timestamp('created_at')->nullable()->useCurrent();
-      $table->dateTime('terakhir_online')->nullable();
+      $table->timestamp('terakhir_online')->nullable();
       $table->decimal('latitude', 10, 8)->nullable();
       $table->decimal('longitude', 11, 8)->nullable();
+      $table->timestamps();
     });
   }
 
