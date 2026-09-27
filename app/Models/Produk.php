@@ -64,7 +64,8 @@ class Produk extends Model
 
   public function scopeTersedia($query)
   {
-    return $query->where('status_produk', 'tersedia');
+    return $query->where('status_produk', 'tersedia')
+      ->where('status_aktif', true);
   }
 
   public function getHargaFormatAttribute(): string

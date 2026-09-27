@@ -89,7 +89,7 @@
                                         <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
                                         <circle cx="12" cy="10" r="2.5" />
                                     </svg>
-                                    {{ $item->lokasi->nama_lokasi ?? 'Tidak diketahui' }}
+                                    {{ $item->lokasi?->nama_lokasi ?? 'Tidak diketahui' }}
                                 </p>
                                 <p class="product-price">{{ $item->harga_format }}</p>
                                 <p class="product-seller">{{ $item->penjual->nama ?? '-' }}</p>
