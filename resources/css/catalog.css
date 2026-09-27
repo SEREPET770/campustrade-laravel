@@ -1,0 +1,724 @@
+:root {
+    --page-max: 1480px;
+    --page-pad: 32px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #14213d;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.page-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px var(--page-pad);
+    background: #fff;
+    border-bottom: 1px solid #e7ecf3;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #14213d;
+}
+
+.icon-box {
+    width: 26px;
+    height: 26px;
+    color: #2196f3;
+}
+
+.logo-accent {
+    color: #2196f3;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #55627a;
+}
+
+.nav-links .active {
+    color: #2196f3;
+}
+
+.nav-search-form {
+    flex: 1;
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    background: #f1f4f9;
+    border-radius: 9px;
+    padding: 0 14px;
+}
+
+.nav-search-form input {
+    flex: 1;
+    border: 0;
+    background: none;
+    padding: 11px 8px;
+    outline: none;
+    font-size: 13px;
+}
+
+.nav-search-btn {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: #8894a8;
+    padding: 0;
+}
+
+.nav-guest-actions,
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2196f3, #42a5f5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.28);
+}
+
+.btn-outline {
+    border: 1px solid #d6dce6;
+    background: #fff;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: #14213d;
+}
+
+.btn-outline-light {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #fff;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    color: #2196f3;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.btn-white svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* HERO */
+.hero-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: linear-gradient(135deg, #eaf4ff, #dcecff);
+    padding: 44px 0;
+}
+
+.hero-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 480px;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(33, 150, 243, 0.15);
+    color: #1565c0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+.hero-text h1 {
+    font-size: 33px;
+    line-height: 1.28;
+    margin: 0 0 14px;
+}
+
+.hero-accent {
+    color: #2196f3;
+}
+
+.hero-text p {
+    color: #55627a;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.hero-search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px 8px 8px 16px;
+    max-width: 440px;
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.1);
+}
+
+.hero-search-icon {
+    width: 17px;
+    height: 17px;
+    color: #8894a8;
+    flex-shrink: 0;
+}
+
+.hero-search-form input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 10px 4px;
+    font-size: 13px;
+}
+
+.hero-search-form button {
+    border: 0;
+    background: linear-gradient(135deg, #2196f3, #42a5f5);
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.hero-illustration {
+    width: 300px;
+    flex-shrink: 1;
+    min-width: 220px;
+}
+
+.hero-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px;
+    min-width: 250px;
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.06);
+}
+
+.hero-badge {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.hero-badge-icon {
+    background: #eaf4ff;
+    color: #2196f3;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    padding: 9px;
+    flex-shrink: 0;
+}
+
+.hero-badge strong {
+    display: block;
+    font-size: 13px;
+}
+
+.hero-badge p {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: #8894a8;
+}
+
+/* LAYOUT */
+.content-layout {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-top: 36px;
+}
+
+.content-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-sidebar {
+    width: 290px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+/* SECTIONS */
+.katalog-section,
+.info-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 19px;
+    margin: 0 0 18px;
+    font-weight: 700;
+}
+
+.section-title.center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* KATEGORI */
+.kategori-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.kategori-card {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: #fff;
+    border: 1px solid #e7ecf3;
+    border-radius: 999px;
+    padding: 11px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.15s;
+}
+
+.kategori-card:hover,
+.kategori-card.is-active {
+    border-color: #2196f3;
+    color: #2196f3;
+    box-shadow: 0 6px 14px rgba(33, 150, 243, 0.12);
+}
+
+.kategori-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #e7ecf3;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(20, 33, 61, 0.05);
+    transition: 0.18s;
+}
+
+.product-card:hover {
+    box-shadow: 0 12px 26px rgba(20, 33, 61, 0.12);
+    transform: translateY(-3px);
+}
+
+.card-image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #f1f4f9;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c2cbdb;
+}
+
+.img-placeholder svg {
+    width: 34px;
+    height: 34px;
+}
+
+.img-placeholder.small svg {
+    width: 20px;
+    height: 20px;
+}
+
+.badge-kondisi {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #fff;
+}
+
+.badge-bekas {
+    background: #2196f3;
+}
+
+.badge-baru {
+    background: #43a047;
+}
+
+.card-content {
+    padding: 14px;
+}
+
+.product-name {
+    font-size: 13px;
+    margin: 0 0 6px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.product-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #8894a8;
+    margin: 0 0 8px;
+}
+
+.product-location svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.product-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2196f3;
+    margin: 0 0 4px;
+}
+
+.product-seller {
+    font-size: 11px;
+    color: #8894a8;
+    margin: 0;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 44px 20px;
+    color: #8894a8;
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e7ecf3;
+}
+
+/* SIDEBAR */
+.sidebar-card {
+    background: #fff;
+    border: 1px solid #e7ecf3;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(20, 33, 61, 0.05);
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin: 0 0 16px;
+    font-weight: 700;
+}
+
+.sidebar-title svg {
+    width: 16px;
+    height: 16px;
+    color: #f5a623;
+}
+
+.sidebar-product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sidebar-product-list li {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.sidebar-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f1f4f9;
+    flex-shrink: 0;
+}
+
+.sidebar-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar-product-name {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 3px;
+}
+
+.sidebar-product-price {
+    font-size: 12px;
+    color: #2196f3;
+    font-weight: 700;
+    margin: 0;
+}
+
+.sidebar-empty {
+    font-size: 12px;
+    color: #8894a8;
+}
+
+.sidebar-cta {
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+    color: #fff;
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.sidebar-cta-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-cta h3 {
+    margin: 12px 0 6px;
+    font-size: 15px;
+}
+
+.sidebar-cta p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0 0 16px;
+}
+
+/* CARA KERJA */
+.cara-kerja-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+}
+
+.cara-kerja-step {
+    background: #fff;
+    border: 1px solid #e7ecf3;
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.cara-kerja-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background: #eaf4ff;
+    color: #2196f3;
+    border-radius: 50%;
+    padding: 11px;
+}
+
+.cara-kerja-step h3 {
+    font-size: 14px;
+    margin: 14px 0 6px;
+}
+
+.cara-kerja-step p {
+    font-size: 12px;
+    color: #8894a8;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tentang-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    color: #55627a;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* CTA */
+.cta-section {
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+    border-radius: 18px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.cta-section h2 {
+    margin: 0 0 20px;
+    font-size: 21px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* FOOTER */
+.landing-footer {
+    background: #14213d;
+    color: #c2cbdb;
+    margin-top: 44px;
+    padding: 32px;
+}
+
+.footer-content {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.footer-brand p {
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+}
+
+.footer-kontak h4 {
+    font-size: 13px;
+    margin: 0 0 6px;
+}
+
+.footer-kontak p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 11px;
+    margin-top: 22px;
+    color: #8894a8;
+}
+
+@media (max-width: 900px) {
+    .content-layout {
+        flex-direction: column;
+    }
+
+    .content-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .nav-links,
+    .nav-search-form,
+    .hero-illustration {
+        display: none;
+    }
+}

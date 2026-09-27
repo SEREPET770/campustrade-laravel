@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'CampusTrade — Marketplace Barang Bekas Mahasiswa')</title>
+    @vite(['resources/css/catalog.css', 'resources/js/app.js'])
+    @stack('styles')
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="{{ route('catalog.index') }}" class="logo">
+            <span class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 2l9 5v10l-9 5-9-5V7z" />
+                    <path d="M3 7l9 5 9-5" />
+                    <path d="M12 12v10" />
+                </svg>
+            </span>
+            Campus<span class="logo-accent">Trade</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="{{ route('catalog.index') }}"
+                class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">Beranda</a>
+            <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
+            <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
+        </nav>
+
+        <form action="{{ route('catalog.index') }}" method="GET" class="nav-search-form">
+            <input type="text" name="search" placeholder="Cari produk, kategori, atau kata kunci..."
+                value="{{ request('search') }}">
+            <button type="submit" class="nav-search-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                </svg>
+            </button>
+        </form>
+
+        @auth
+            <div class="nav-user">
+                <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('user.dashboard') }}"
+                    class="btn-outline">
+                    Halo, {{ auth()->user()->nama }}
+                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn-outline">Keluar</button>
+                </form>
+            </div>
+        @else
+            <div class="nav-guest-actions">
+                <a href="{{ route('login') }}" class="btn-outline">Masuk</a>
+                <a href="{{ route('register') }}" class="btn-primary">Daftar</a>
+            </div>
+        @endauth
+    </header>
+
+    @yield('hero')
+
+    <main class="page-wrap">
+        @yield('content')
+    </main>
+
+    <footer class="landing-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">CampusTrade</span>
+                <p>Marketplace barang bekas mahasiswa.</p>
+            </div>
+            <div class="footer-menu">
+                <a href="{{ route('catalog.index') }}">Beranda</a>
+                <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
+                <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
+            </div>
+            <div class="footer-kontak">
+                <h4>Kontak</h4>
+                <p>support@campustrade.id</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; {{ date('Y') }} CampusTrade. Seluruh hak cipta dilindungi.
+        </div>
+    </footer>
+
+    @stack('scripts')
+</body>
+
+</html>

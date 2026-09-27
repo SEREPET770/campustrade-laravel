@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\UserVerificationController;
 
-Route::redirect('/', '/login');
+Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

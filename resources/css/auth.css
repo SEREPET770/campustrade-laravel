@@ -9,7 +9,7 @@
             rgba(10, 42, 75, 0.55),
             rgba(12, 77, 125, 0.45)
         ),
-        url("/image/campus-bg.jpg") center/cover no-repeat fixed;
+        url("../images/campus-bg.jpg") center/cover no-repeat fixed;
     position: relative;
     overflow-x: hidden;
 }
@@ -19,7 +19,7 @@
     inset: 0;
     background: rgba(7, 30, 52, 0.28);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(5px);
     z-index: 0;
 }
 
@@ -35,13 +35,43 @@
 
 .auth-card {
     width: 100%;
-    background: rgba(20, 40, 60, 0.78);
+    background: rgba(18, 34, 48, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.28);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 16px;
     padding: 32px;
+}
+
+.auth-card {
+    animation: authFadeIn 0.4s ease;
+}
+
+@keyframes authFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-page.is-leaving .auth-card {
+    animation: authFadeOut 0.25s ease forwards;
+}
+
+@keyframes authFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
 }
 
 .login-card {
@@ -83,10 +113,6 @@
     color: #42a5f5;
 }
 
-.auth-heading {
-    margin-bottom: 25px;
-}
-
 .auth-heading h1 {
     margin: 0 0 7px;
     font-size: 25px;
@@ -126,9 +152,15 @@
     left: 14px;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 15px;
+    color: rgba(255, 255, 255, 0.52);
     z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon svg {
+    width: 16px;
+    height: 16px;
 }
 
 .input-wrapper input {
@@ -139,7 +171,7 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 7px;
     outline: none;
-    background: rgba(15, 35, 55, 0.65);
+    background: rgba(15, 30, 45, 0.55);
     color: #fff;
     font-size: 14px;
     transition: 0.2s;
@@ -151,19 +183,22 @@
 
 .input-wrapper input:focus {
     border-color: #42a5f5;
-    background: rgba(15, 35, 55, 0.8);
+    background: rgba(15, 30, 45, 0.7);
     box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.15);
 }
+
 .input-wrapper input:-webkit-autofill,
 .input-wrapper input:-webkit-autofill:hover,
 .input-wrapper input:-webkit-autofill:focus,
 .input-wrapper input:-webkit-autofill:active {
     -webkit-text-fill-color: #fff;
-    -webkit-box-shadow: 0 0 0 1000px rgba(20, 45, 65, 0.85) inset;
-    box-shadow: 0 0 0 1000px rgba(20, 45, 65, 0.85) inset;
+    -webkit-box-shadow: 0 0 0 1000px rgba(15, 30, 45, 0.9) inset;
+    box-shadow: 0 0 0 1000px rgba(15, 30, 45, 0.9) inset;
     caret-color: #fff;
     border-color: rgba(255, 255, 255, 0.4);
-    transition: background-color 9999s ease-in-out 0s;
+    transition:
+        background-color 9999s ease-in-out 0s,
+        color 9999s ease-in-out 0s;
 }
 
 .password-toggle {
@@ -321,7 +356,7 @@
     height: 46px;
     border: 1px dashed rgba(255, 255, 255, 0.4);
     border-radius: 7px;
-    background: rgba(15, 35, 55, 0.65);
+    background: rgba(15, 30, 45, 0.5);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -335,12 +370,18 @@
 
 .file-upload:hover {
     border-color: #42a5f5;
-    background: rgba(20, 45, 65, 0.45);
+    background: rgba(15, 30, 45, 0.65);
 }
 
 .file-icon {
-    font-size: 17px;
-    color: #42a5f5;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.52);
+}
+
+.file-icon svg {
+    width: 18px;
+    height: 18px;
 }
 
 .file-info {

@@ -86,6 +86,9 @@ class AuthController extends Controller
       'nim' => ['required', 'string', 'max:20', 'unique:users,nim'],
       'no_whatsapp' => ['required', 'string', 'max:20'],
       'foto_ktm' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+    ], [
+      'email.unique' => 'Email ini sudah terdaftar. Silakan gunakan email lain atau masuk ke akun Anda.',
+      'nim.unique' => 'NIM ini sudah terdaftar. Silakan hubungi admin jika ini adalah kesalahan.',
     ]);
 
     $path = $request->file('foto_ktm')->store('ktm', 'public');

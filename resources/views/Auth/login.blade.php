@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk - CampusTrade</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/auth.css', 'resources/js/app.js'])
 </head>
 
 <body class="auth-page">
@@ -19,8 +19,8 @@
                     <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17 2L31 9.5V24.5L17 32L3 24.5V9.5L17 2Z" stroke="#ffffff" stroke-width="2"
                             stroke-linejoin="round" />
-                        <path d="M17 2L31 9.5L17 17L3 9.5L17 2Z" fill="#42a5f5" fill-opacity="0.55"
-                            stroke="#42a5f5" stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M17 2L31 9.5L17 17L3 9.5L17 2Z" fill="#42a5f5" fill-opacity="0.55" stroke="#42a5f5"
+                            stroke-width="1.5" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="brand-name">
@@ -28,10 +28,7 @@
                 </div>
             </div>
 
-            <div class="auth-heading">
-                <h1>Masuk ke CampusTrade</h1>
-                <p>Temukan dan jual barang di lingkungan kampus</p>
-            </div>
+
 
             @if (session('notif'))
                 @php($notif = session('notif'))
@@ -59,7 +56,13 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">✉</span>
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <path d="M3 7l9 6 9-6" />
+                            </svg>
+                        </span>
                         <input type="email" id="email" name="email" value="{{ old('email') }}"
                             placeholder="Masukkan email kampus" required autofocus>
                     </div>
@@ -68,7 +71,13 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">🔒</span>
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="11" width="14" height="9" rx="2" />
+                                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                            </svg>
+                        </span>
                         <input type="password" id="password" name="password" placeholder="Masukkan password" required>
                         <button type="button" class="password-toggle" data-target="password">
                             ◉
@@ -86,7 +95,6 @@
 
                 <button type="submit" class="auth-button">
                     Masuk
-                    <span>→</span>
                 </button>
             </form>
 
