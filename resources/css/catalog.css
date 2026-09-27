@@ -1,6 +1,12 @@
 :root {
     --page-max: 1480px;
     --page-pad: 32px;
+    --color-primary: #1d6fa5;
+    --color-primary-dark: #1f508a;
+    --color-primary-darker: #163b66;
+    --color-accent: #007c85;
+    --color-accent-dark: #00636a;
+    --color-price: #2b6a94;
 }
 
 * {
@@ -10,7 +16,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
+    background: #f5f6f8;
     color: #14213d;
 }
 
@@ -37,29 +43,29 @@ svg {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 16px var(--page-pad);
-    background: #fff;
-    border-bottom: 1px solid #e7ecf3;
+    padding: 20px var(--page-pad);
+    background: var(--color-primary);
+    border-bottom: 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 19px;
+    gap: 10px;
+    font-size: 21px;
     font-weight: 700;
     white-space: nowrap;
-    color: #14213d;
+    color: #fff;
 }
 
 .icon-box {
-    width: 26px;
-    height: 26px;
-    color: #2196f3;
+    width: 30px;
+    height: 30px;
+    color: #fff;
 }
 
 .logo-accent {
-    color: #2196f3;
+    color: #dbe9f5;
 }
 
 .nav-links {
@@ -67,11 +73,12 @@ svg {
     gap: 24px;
     font-size: 14px;
     font-weight: 500;
-    color: #55627a;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .nav-links .active {
-    color: #2196f3;
+    color: #fff;
+    font-weight: 700;
 }
 
 .nav-search-form {
@@ -79,7 +86,7 @@ svg {
     max-width: 420px;
     display: flex;
     align-items: center;
-    background: #f1f4f9;
+    background: #fff;
     border-radius: 9px;
     padding: 0 14px;
 }
@@ -88,7 +95,7 @@ svg {
     flex: 1;
     border: 0;
     background: none;
-    padding: 11px 8px;
+    padding: 12px 8px;
     outline: none;
     font-size: 13px;
 }
@@ -99,7 +106,7 @@ svg {
     border: 0;
     background: none;
     cursor: pointer;
-    color: #8894a8;
+    color: var(--color-primary);
     padding: 0;
 }
 
@@ -112,85 +119,47 @@ svg {
     white-space: nowrap;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #2196f3, #42a5f5);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 13px;
-    border: 0;
-    cursor: pointer;
-    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.28);
-}
-
-.btn-outline {
-    border: 1px solid #d6dce6;
-    background: #fff;
-    padding: 9px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    color: #14213d;
-}
-
-.btn-outline-light {
+.navbar .btn-outline {
     border: 1px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
     color: #fff;
-    padding: 11px 22px;
-    border-radius: 8px;
-    font-weight: 600;
 }
 
-.btn-white {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #fff;
-    color: #2196f3;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 13px;
+.navbar .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.btn-white svg {
-    width: 14px;
-    height: 14px;
-}
-
-/* HERO */
-.hero-section {
+/* HERO BANNER (foto penuh, mengikuti referensi native) */
+.hero-banner {
     width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    background: linear-gradient(135deg, #eaf4ff, #dcecff);
-    padding: 44px 0;
-}
-
-.hero-inner {
-    max-width: var(--page-max);
-    margin: 0 auto;
-    padding: 0 var(--page-pad);
+    margin-top: 24px;
+    min-height: 460px;
+    background: #dfe7ee url("../images/hero-banner.jpg") center/cover no-repeat;
     display: flex;
-    gap: 32px;
     align-items: center;
     justify-content: space-between;
+    gap: 32px;
     flex-wrap: wrap;
+    padding: 40px 6%;
 }
 
-.hero-text {
-    max-width: 480px;
+.hero-overlay-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 460px;
+    box-shadow: 0 16px 40px rgba(20, 33, 61, 0.18);
 }
 
 .hero-tag {
     display: inline-block;
-    background: rgba(33, 150, 243, 0.15);
-    color: #1565c0;
+    background: rgba(29, 111, 165, 0.15);
+    color: var(--color-primary);
     font-size: 12px;
     font-weight: 600;
     padding: 6px 14px;
@@ -198,17 +167,17 @@ svg {
     margin-bottom: 16px;
 }
 
-.hero-text h1 {
-    font-size: 33px;
+.hero-overlay-card h1 {
+    font-size: 30px;
     line-height: 1.28;
     margin: 0 0 14px;
 }
 
 .hero-accent {
-    color: #2196f3;
+    color: var(--color-primary);
 }
 
-.hero-text p {
+.hero-overlay-card p {
     color: #55627a;
     font-size: 14px;
     line-height: 1.7;
@@ -219,11 +188,9 @@ svg {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #fff;
+    background: #f1f4f9;
     border-radius: 12px;
     padding: 8px 8px 8px 16px;
-    max-width: 440px;
-    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.1);
 }
 
 .hero-search-icon {
@@ -237,13 +204,18 @@ svg {
     flex: 1;
     border: 0;
     outline: none;
+    background: none;
     padding: 10px 4px;
     font-size: 13px;
 }
 
 .hero-search-form button {
     border: 0;
-    background: linear-gradient(135deg, #2196f3, #42a5f5);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
     color: #fff;
     width: 38px;
     height: 38px;
@@ -251,12 +223,6 @@ svg {
     border-radius: 8px;
     cursor: pointer;
     flex-shrink: 0;
-}
-
-.hero-illustration {
-    width: 300px;
-    flex-shrink: 1;
-    min-width: 220px;
 }
 
 .hero-badges {
@@ -267,7 +233,7 @@ svg {
     border-radius: 16px;
     padding: 22px;
     min-width: 250px;
-    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.06);
+    box-shadow: 0 16px 40px rgba(20, 33, 61, 0.18);
 }
 
 .hero-badge {
@@ -277,8 +243,8 @@ svg {
 }
 
 .hero-badge-icon {
-    background: #eaf4ff;
-    color: #2196f3;
+    background: #e4edf3;
+    color: var(--color-primary);
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -359,9 +325,9 @@ svg {
 
 .kategori-card:hover,
 .kategori-card.is-active {
-    border-color: #2196f3;
-    color: #2196f3;
-    box-shadow: 0 6px 14px rgba(33, 150, 243, 0.12);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 6px 14px rgba(29, 111, 165, 0.12);
 }
 
 .kategori-icon {
@@ -435,7 +401,7 @@ svg {
 }
 
 .badge-bekas {
-    background: #2196f3;
+    background: var(--color-primary);
 }
 
 .badge-baru {
@@ -471,7 +437,7 @@ svg {
 .product-price {
     font-size: 15px;
     font-weight: 700;
-    color: #2196f3;
+    color: var(--color-price);
     margin: 0 0 4px;
 }
 
@@ -553,7 +519,7 @@ svg {
 
 .sidebar-product-price {
     font-size: 12px;
-    color: #2196f3;
+    color: var(--color-price);
     font-weight: 700;
     margin: 0;
 }
@@ -564,7 +530,11 @@ svg {
 }
 
 .sidebar-cta {
-    background: linear-gradient(135deg, #2196f3, #1565c0);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
     color: #fff;
     border-radius: 16px;
     padding: 22px;
@@ -608,8 +578,8 @@ svg {
     justify-content: center;
     width: 46px;
     height: 46px;
-    background: #eaf4ff;
-    color: #2196f3;
+    background: #e4edf3;
+    color: var(--color-primary);
     border-radius: 50%;
     padding: 11px;
 }
@@ -637,7 +607,11 @@ svg {
 
 /* CTA */
 .cta-section {
-    background: linear-gradient(135deg, #2196f3, #1565c0);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
     border-radius: 18px;
     padding: 40px;
     text-align: center;
@@ -657,8 +631,8 @@ svg {
 
 /* FOOTER */
 .landing-footer {
-    background: #14213d;
-    color: #c2cbdb;
+    background: #1f2937;
+    color: #d1d5db;
     margin-top: 44px;
     padding: 32px;
 }
@@ -703,7 +677,7 @@ svg {
     text-align: center;
     font-size: 11px;
     margin-top: 22px;
-    color: #8894a8;
+    color: #9ca3af;
 }
 
 @media (max-width: 900px) {
@@ -717,8 +691,12 @@ svg {
     }
 
     .nav-links,
-    .nav-search-form,
-    .hero-illustration {
+    .nav-search-form {
         display: none;
+    }
+
+    .hero-banner {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
