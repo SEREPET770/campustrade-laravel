@@ -15,7 +15,14 @@
     <main class="auth-container">
         <div class="auth-card login-card">
             <div class="auth-brand">
-                <div class="brand-icon">C</div>
+                <div class="brand-icon">
+                    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 2L31 9.5V24.5L17 32L3 24.5V9.5L17 2Z" stroke="#ffffff" stroke-width="2"
+                            stroke-linejoin="round" />
+                        <path d="M17 2L31 9.5L17 17L3 9.5L17 2Z" fill="#42a5f5" fill-opacity="0.55"
+                            stroke="#42a5f5" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                </div>
                 <div class="brand-name">
                     Campus<span>Trade</span>
                 </div>
@@ -26,17 +33,12 @@
                 <p>Temukan dan jual barang di lingkungan kampus</p>
             </div>
 
-            @if (session('success'))
-                <div class="alert alert-success">
-                    <span>✓</span>
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if (session('error'))
-                <div class="alert alert-error">
-                    <span>!</span>
-                    {{ session('error') }}
+            @if (session('notif'))
+                @php($notif = session('notif'))
+                @php($notifIcon = ['success' => '✓', 'error' => '!', 'warning' => '!', 'info' => 'ⓘ'])
+                <div class="alert alert-{{ $notif['tipe'] }}">
+                    <span>{{ $notifIcon[$notif['tipe']] ?? '•' }}</span>
+                    {{ $notif['pesan'] }}
                 </div>
             @endif
 
@@ -79,6 +81,7 @@
                         <input type="checkbox" name="remember" value="1">
                         <span>Ingat saya</span>
                     </label>
+                    <a href="#" class="forgot-link">Lupa password?</a>
                 </div>
 
                 <button type="submit" class="auth-button">

@@ -9,7 +9,7 @@
             rgba(10, 42, 75, 0.55),
             rgba(12, 77, 125, 0.45)
         ),
-        url("/images/campus-bg.jpg") center/cover no-repeat fixed;
+        url("/image/campus-bg.jpg") center/cover no-repeat fixed;
     position: relative;
     overflow-x: hidden;
 }
@@ -19,7 +19,7 @@
     inset: 0;
     background: rgba(7, 30, 52, 0.28);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 0;
 }
 
@@ -35,7 +35,7 @@
 
 .auth-card {
     width: 100%;
-    background: rgba(35, 65, 90, 0.45);
+    background: rgba(20, 40, 60, 0.78);
     border: 1px solid rgba(255, 255, 255, 0.28);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(18px);
@@ -63,15 +63,14 @@
 .brand-icon {
     width: 38px;
     height: 38px;
-    border: 2px solid #fff;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 21px;
-    font-weight: bold;
-    color: #4db5ff;
-    background: rgba(255, 255, 255, 0.08);
+}
+
+.brand-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .brand-name {
@@ -140,7 +139,7 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 7px;
     outline: none;
-    background: rgba(20, 45, 65, 0.3);
+    background: rgba(15, 35, 55, 0.65);
     color: #fff;
     font-size: 14px;
     transition: 0.2s;
@@ -152,8 +151,19 @@
 
 .input-wrapper input:focus {
     border-color: #42a5f5;
-    background: rgba(20, 45, 65, 0.45);
+    background: rgba(15, 35, 55, 0.8);
     box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.15);
+}
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus,
+.input-wrapper input:-webkit-autofill:active {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0 1000px rgba(20, 45, 65, 0.85) inset;
+    box-shadow: 0 0 0 1000px rgba(20, 45, 65, 0.85) inset;
+    caret-color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 9999s ease-in-out 0s;
 }
 
 .password-toggle {
@@ -274,8 +284,31 @@
     color: #ffd9d5;
 }
 
+.alert-info {
+    background: rgba(66, 165, 245, 0.18);
+    border: 1px solid rgba(66, 165, 245, 0.35);
+    color: #d8ecff;
+}
+
+.alert-warning {
+    background: rgba(255, 193, 7, 0.18);
+    border: 1px solid rgba(255, 193, 7, 0.35);
+    color: #ffedb8;
+}
+
 .alert span {
     font-weight: bold;
+}
+
+.forgot-link {
+    color: #42b4ff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
 }
 
 .form-row {
@@ -288,7 +321,7 @@
     height: 46px;
     border: 1px dashed rgba(255, 255, 255, 0.4);
     border-radius: 7px;
-    background: rgba(20, 45, 65, 0.3);
+    background: rgba(15, 35, 55, 0.65);
     display: flex;
     align-items: center;
     gap: 10px;

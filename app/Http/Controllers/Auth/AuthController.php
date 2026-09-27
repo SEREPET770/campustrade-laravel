@@ -31,11 +31,15 @@ class AuthController extends Controller
     }
 
     if ($user->status_verifikasi === 'menunggu') {
-      return back()->withErrors(['email' => 'Akun Anda sedang menunggu verifikasi.']);
+      return back()
+        ->with('notif', ['pesan' => 'Akun Anda belum terverifikasi. Silakan tunggu verifikasi dari admin.', 'tipe' => 'info'])
+        ->onlyInput('email');
     }
 
     if ($user->status_verifikasi === 'ditolak') {
-      return back()->withErrors(['email' => 'Akun Anda telah ditolak. Silakan hubungi admin.']);
+      return back()
+        ->with('notif', ['pesan' => 'Akun Anda telah ditolak. Silakan hubungi admin.', 'tipe' => 'error'])
+        ->onlyInput('email');
     }
 
     Auth::login($user, $request->boolean('remember'));
