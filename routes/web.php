@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\UserVerificationController;
 
 Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
+Route::view('/tentang', 'about.index')->name('about');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

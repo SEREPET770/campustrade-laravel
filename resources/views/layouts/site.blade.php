@@ -27,8 +27,8 @@
         <nav class="nav-links">
             <a href="{{ route('catalog.index') }}"
                 class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">Beranda</a>
-            <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
-            <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
+            <a href="{{ route('catalog.index') }}#produk-terbaru">Produk</a>
+            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Tentang</a>
         </nav>
 
         <form action="{{ route('catalog.index') }}" method="GET" class="nav-search-form">
@@ -43,23 +43,34 @@
             </button>
         </form>
 
-        @auth
-            <div class="nav-user">
-                <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('user.dashboard') }}"
-                    class="btn-outline">
-                    Halo, {{ auth()->user()->nama }}
-                </a>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn-outline">Keluar</button>
-                </form>
-            </div>
-        @else
-            <div class="nav-guest-actions">
-                <a href="{{ route('login') }}" class="btn-outline">Masuk</a>
-                <a href="{{ route('register') }}" class="btn-primary">Daftar</a>
-            </div>
-        @endauth
+        <div class="nav-right">
+            <a href="#" class="nav-cart" aria-label="Keranjang" title="Keranjang">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="9" cy="20" r="1.5" />
+                    <circle cx="18" cy="20" r="1.5" />
+                    <path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6" />
+                </svg>
+            </a>
+
+            @auth
+                <div class="nav-user">
+                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('user.dashboard') }}"
+                        class="btn-outline">
+                        Halo, {{ auth()->user()->nama }}
+                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn-outline">Keluar</button>
+                    </form>
+                </div>
+            @else
+                <div class="nav-guest-actions">
+                    <a href="{{ route('login') }}" class="btn-outline">Masuk</a>
+                    <a href="{{ route('register') }}" class="btn-primary">Daftar</a>
+                </div>
+            @endauth
+        </div>
     </header>
 
     @yield('hero')
@@ -76,8 +87,8 @@
             </div>
             <div class="footer-menu">
                 <a href="{{ route('catalog.index') }}">Beranda</a>
-                <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
-                <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
+                <a href="{{ route('catalog.index') }}#produk-terbaru">Produk</a>
+                <a href="{{ route('about') }}">Tentang</a>
             </div>
             <div class="footer-kontak">
                 <h4>Kontak</h4>

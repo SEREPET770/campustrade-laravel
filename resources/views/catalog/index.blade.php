@@ -34,9 +34,9 @@
     <div class="content-layout">
         <div class="content-main">
 
-            <section class="katalog-section" id="kategori-populer">
+            <section class="katalog-section" id="produk-terbaru">
                 <div class="katalog-header">
-                    <h2 class="section-title">Kategori Populer</h2>
+                    <h2 class="section-title">Produk Terbaru</h2>
                 </div>
 
                 <div class="kategori-grid">
@@ -101,16 +101,6 @@
                         </div>
                     @endforelse
                 </div>
-            </section>
-
-            <section class="info-section" id="tentang-kami">
-                <h2 class="section-title center">Tentang Kami</h2>
-                <p class="tentang-text">
-                    CampusTrade adalah marketplace barang bekas khusus mahasiswa. Kami mempertemukan
-                    mahasiswa yang ingin menjual barang tidak terpakai dengan mahasiswa lain yang sedang
-                    mencari barang berkualitas dengan harga terjangkau. Semua transaksi dilakukan langsung
-                    antar sesama mahasiswa dalam satu platform yang aman, transparan, dan mudah digunakan.
-                </p>
             </section>
 
             <section class="info-section">
