@@ -60,21 +60,18 @@ svg {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 21px;
-    font-weight: 700;
-    white-space: nowrap;
-    color: #fff;
+    text-decoration: none;
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1.3px;
+    line-height: 1;
 }
-
-.icon-box {
-    width: 30px;
-    height: 30px;
-    color: #fff;
+.logo-campus {
+    color: #ffffff;
 }
-
-.logo-accent {
-    color: #dbe9f5;
+.logo-trade {
+    color: #5dd9ff;
 }
 
 .nav-links {
@@ -85,6 +82,148 @@ svg {
     font-size: 14px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-links > a,
+.nav-dropdown summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-links > a i,
+.nav-dropdown summary i {
+    width: 16px;
+    text-align: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.nav-dropdown {
+    position: static;
+}
+.nav-dropdown summary {
+    list-style: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.nav-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+.nav-dropdown summary::marker {
+    display: none;
+}
+.nav-dropdown[open] summary {
+    color: #fff;
+}
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 6px 14px;
+    background: #fff;
+    border: 1px solid #e5eaf0;
+    border-radius: 0 0 16px 16px;
+    padding: 24px max(24px, calc((100% - 1100px) / 2));
+    box-shadow: 0 10px 28px rgba(20, 33, 61, 0.12);
+    z-index: 202;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s ease;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.nav-dropdown-menu a,
+.nav-dropdown-menu span {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 9px 13px;
+    border-radius: 8px;
+    color: #14213d;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: normal;
+    transition: 0.15s;
+}
+.nav-dropdown-menu a:hover {
+    background: #f1f7fb;
+    color: var(--color-primary);
+}
+.nav-dropdown-menu span {
+    color: #8894a8;
+}
+
+.nav-dropdown {
+    position: static;
+}
+.nav-dropdown summary {
+    position: relative;
+}
+.nav-dropdown summary::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    height: 16px;
+}
+
+@keyframes dropdownShow {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 900px) {
+    .nav-dropdown-menu {
+        grid-template-columns: repeat(3, minmax(130px, 1fr));
+        padding: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .nav-dropdown-menu {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        padding: 16px;
+    }
+}
+
+@media (min-width: 901px) {
+    .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .nav-dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition:
+            opacity 0.18s ease,
+            transform 0.18s ease,
+            visibility 0.18s ease;
+    }
+    .nav-dropdown:hover summary {
+        color: #fff;
+    }
 }
 
 .nav-links .active {
@@ -1072,11 +1211,14 @@ svg {
 }
 
 .footer-logo {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1.3px;
+    line-height: 1;
 }
-
 .footer-brand p {
     font-size: 12px;
     margin: 6px 0 0;

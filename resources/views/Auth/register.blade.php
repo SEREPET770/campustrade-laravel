@@ -15,16 +15,8 @@
     <main class="auth-container">
         <div class="auth-card register-card">
             <div class="auth-brand">
-                <div class="brand-icon">
-                    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 2L31 9.5V24.5L17 32L3 24.5V9.5L17 2Z" stroke="#ffffff" stroke-width="2"
-                            stroke-linejoin="round" />
-                        <path d="M17 2L31 9.5L17 17L3 9.5L17 2Z" fill="#42a5f5" fill-opacity="0.55" stroke="#42a5f5"
-                            stroke-width="1.5" stroke-linejoin="round" />
-                    </svg>
-                </div>
                 <div class="brand-name">
-                    Campus<span>Trade</span>
+                    <span class="brand-campus">campus</span><span class="brand-trade">trade</span>
                 </div>
             </div>
 
@@ -120,8 +112,7 @@
                                 <path d="M8 11V7a4 4 0 0 1 8 0v4" />
                             </svg>
                         </span>
-                        <input type="password" id="password" name="password" placeholder="Masukkan password"
-                            required>
+                        <input type="password" id="password" name="password" placeholder="Masukkan password" required>
                         <button type="button" class="password-toggle" data-target="password">
                             ◉
                         </button>

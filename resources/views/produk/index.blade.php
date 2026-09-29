@@ -6,30 +6,6 @@
     @vite(['resources/css/produk.css'])
 @endpush
 
-@section('hero')
-    <section class="search-hero">
-        <div class="page-wrap search-hero-inner">
-            <div>
-                <span class="hero-tag">Hasil Pencarian</span>
-                @if ($search !== '')
-                    <h1>Kamu mencari: “{{ $search }}”</h1>
-                @else
-                    <h1>Semua Produk</h1>
-                @endif
-                <p>Ditemukan {{ $produk->total() }} produk yang sesuai dengan pencarian kamu.</p>
-                <a href="{{ route('catalog.index') }}" class="back-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M19 12H5" />
-                        <path d="M12 19l-7-7 7-7" />
-                    </svg>
-                    Kembali ke Beranda
-                </a>
-            </div>
-        </div>
-    </section>
-@endsection
-
 @section('content')
     <div class="produk-layout">
         <form method="GET" action="{{ route('produk.index') }}" id="filter-form" class="filter-sidebar">
