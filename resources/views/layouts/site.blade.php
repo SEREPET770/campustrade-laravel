@@ -51,6 +51,12 @@ body:has(.nav-dropdown[open]) .nav-overlay{opacity:1;visibility:visible}">
             </details>
             <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}"><i
                     class="fa-solid fa-circle-info"></i>Tentang</a>
+            <a href="{{ route('catalog.index') }}"
+                class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">Beranda</a>
+            <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
+            <a href="{{ route('produk.index') }}"
+                class="{{ request()->routeIs('produk.index') ? 'active' : '' }}">Lokasi</a>
+            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Tentang</a>
         </nav>
 
         <form action="{{ route('produk.index') }}" method="GET" class="nav-search-form">
