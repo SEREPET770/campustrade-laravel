@@ -30,15 +30,16 @@
             <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
             <a href="{{ route('produk.index') }}"
                 class="{{ request()->routeIs('produk.index') ? 'active' : '' }}">Lokasi</a>
-            <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
+            <a href="{{ route('about') }}"
+                class="{{ request()->routeIs('about') ? 'active' : '' }}">Tentang</a>
         </nav>
 
         <form action="{{ route('produk.index') }}" method="GET" class="nav-search-form">
             <input type="text" name="search" placeholder="Cari produk, kategori, atau kata kunci..."
                 value="{{ request('search') }}">
             <button type="submit" class="nav-search-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8" />
                     <path d="M21 21l-4.35-4.35" />
                 </svg>
@@ -47,8 +48,8 @@
 
         <div class="nav-right">
             <a href="#" class="nav-cart" aria-label="Keranjang" title="Keranjang">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="20" r="1.5" />
                     <circle cx="18" cy="20" r="1.5" />
                     <path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6" />
