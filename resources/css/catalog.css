@@ -73,6 +73,27 @@ svg {
 .logo-trade {
     color: #5dd9ff;
 }
+.logo-campus {
+    color: #ffffff;
+}
+.logo-trade {
+    color: #5dd9ff;
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.38);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+    z-index: 201;
+}
+
+body:has(.nav-dropdown[open]) .nav-overlay {
+    opacity: 1;
+    visibility: visible;
+}
 
 .nav-links {
     display: flex;

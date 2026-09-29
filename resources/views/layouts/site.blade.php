@@ -12,10 +12,7 @@
 
 <body>
 
-    <div class="nav-overlay"
-        style=".nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.38);opacity:0;visibility:hidden;transition:.2s;z-index:201}
-body:has(.nav-dropdown[open]) .nav-overlay{opacity:1;visibility:visible}">
-    </div>
+    <div class="nav-overlay"></div>
 
     @php
         $navKategori = \App\Models\Kategori::orderBy('nama_kategori')->get();
@@ -25,38 +22,35 @@ body:has(.nav-dropdown[open]) .nav-overlay{opacity:1;visibility:visible}">
         <a href="{{ route('catalog.index') }}" class="logo"><span class="logo-campus">campus</span><span
                 class="logo-trade">trade</span></a>
         <nav class="nav-links">
-            <a href="{{ route('catalog.index') }}" class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}"><i
-                    class="fa-solid fa-house"></i>Beranda</a>
+            <a href="{{ route('catalog.index') }}" class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">
+                <i class="fa-solid fa-house"></i>Beranda
+            </a>
+
             <details class="nav-dropdown">
                 <summary><i class="fa-solid fa-layer-group"></i>Kategori</summary>
                 <div class="nav-dropdown-menu">
                     @forelse ($navKategori as $kat)
-                        <a
-                            href="{{ route('produk.index', ['kategori' => [$kat->id_kategori]]) }}">{{ $kat->nama_kategori }}</a>
+                        href="{{ route('produk.index', ['kategori' => [$kat->id_kategori]]) }}">{{ $kat->nama_kategori }}</a>
                     @empty
                         <span>Belum ada kategori</span>
                     @endforelse
                 </div>
             </details>
+
             <details class="nav-dropdown">
                 <summary><i class="fa-solid fa-location-dot"></i>Lokasi</summary>
                 <div class="nav-dropdown-menu">
                     @forelse ($navLokasi as $lok)
-                        <a
-                            href="{{ route('produk.index', ['lokasi' => [$lok->id_lokasi]]) }}">{{ $lok->nama_lokasi }}</a>
+                        href="{{ route('produk.index', ['lokasi' => [$lok->id_lokasi]]) }}">{{ $lok->nama_lokasi }}</a>
                     @empty
                         <span>Belum ada lokasi</span>
                     @endforelse
                 </div>
             </details>
-            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}"><i
-                    class="fa-solid fa-circle-info"></i>Tentang</a>
-            <a href="{{ route('catalog.index') }}"
-                class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">Beranda</a>
-            <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
-            <a href="{{ route('produk.index') }}"
-                class="{{ request()->routeIs('produk.index') ? 'active' : '' }}">Lokasi</a>
-            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Tentang</a>
+
+            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                <i class="fa-solid fa-circle-info"></i>Tentang
+            </a>
         </nav>
 
         <form action="{{ route('produk.index') }}" method="GET" class="nav-search-form">
