@@ -61,7 +61,7 @@ class ProdukController extends Controller
       default => $query->orderByDesc('created_at'),
     };
 
-    $produk = $query->paginate(12)->withQueryString();
+    $produk = $query->paginate(15)->withQueryString();
 
     return view('produk.index', [
       'produk' => $produk,

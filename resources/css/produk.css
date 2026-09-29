@@ -129,15 +129,25 @@
 }
 
 /* MAIN */
+.produk-layout {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 34px;
+    align-items: start;
+}
 .produk-main {
-    flex: 1;
     min-width: 0;
 }
-
 .produk-toolbar {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 16px;
+    align-items: center;
+    margin: 0 0 18px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .urutkan-label {
