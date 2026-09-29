@@ -45,7 +45,7 @@ svg {
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 300;
     min-height: var(--nav-h);
     display: flex;
     align-items: center;
@@ -163,7 +163,7 @@ body:has(.nav-dropdown[open]) .nav-overlay {
         transform 0.18s ease,
         visibility 0.18s ease;
 }
-.nav-dropdown:hover .nav-dropdown-menu {
+.nav-dropdown[open] .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -228,7 +228,7 @@ body:has(.nav-dropdown[open]) .nav-overlay {
 }
 
 @media (min-width: 901px) {
-    .nav-dropdown:hover .nav-dropdown-menu {
+    .nav-dropdown[open] .nav-dropdown-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -241,9 +241,6 @@ body:has(.nav-dropdown[open]) .nav-overlay {
             opacity 0.18s ease,
             transform 0.18s ease,
             visibility 0.18s ease;
-    }
-    .nav-dropdown:hover summary {
-        color: #fff;
     }
 }
 
