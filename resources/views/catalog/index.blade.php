@@ -6,26 +6,17 @@
     <section class="hero-banner">
         <div class="hero-overlay-card">
             <span class="hero-tag">Marketplace Mahasiswa</span>
-            <h1>Temukan Barang Bekas di Lingkungan <span class="hero-accent">Kampus</span></h1>
-            <p>Jual beli barang bekas dengan aman, mudah, dan terjangkau. Bergabunglah dengan komunitas
-                mahasiswa di CampusTrade!</p>
+            <h1>Jual Beli Barang Bekas di <span class="hero-accent">Kampus</span></h1>
+            <p>Aman, mudah, dan terjangkau sesama mahasiswa.</p>
 
-            <form action="{{ route('catalog.index') }}" method="GET" class="hero-search-form">
-                <svg class="hero-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="M21 21l-4.35-4.35" />
+            <a href="{{ auth()->check() ? route('user.dashboard') : route('register') }}" class="btn-primary hero-btn">
+                Jual Sekarang
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="M13 5l7 7-7 7" />
                 </svg>
-                <input type="text" name="search" placeholder="Cari produk, kategori, atau kata kunci..."
-                    value="{{ $search }}">
-                <button type="submit">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M5 12h14" />
-                        <path d="M13 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </form>
+            </a>
         </div>
     </section>
 @endsection
@@ -40,6 +31,19 @@
                 </div>
 
                 <div class="kategori-grid">
+                    <a href="{{ route('catalog.index') }}" class="kategori-card {{ !$kategoriAktif ? 'is-active' : '' }}">
+                        <span class="kategori-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                            </svg>
+                        </span>
+                        <span class="kategori-name">Semua</span>
+                    </a>
+
                     @forelse ($kategoriList as $kat)
                         <a href="{{ route('catalog.index', ['kategori' => $kat->id_kategori]) }}"
                             class="kategori-card {{ $kategoriAktif == $kat->id_kategori ? 'is-active' : '' }}">
@@ -49,7 +53,7 @@
                                     {!! $kat->icon() !!}
                                 </svg>
                             </span>
-                            <span class="kategori-name">{{ $kat->nama_kategori }}</span>
+                            <span class="kategori-name">{{ $kat->nama_kategori }} ({{ $kat->produk_count }})</span>
                         </a>
                     @empty
                         <p class="kategori-empty">Belum ada kategori tersedia.</p>

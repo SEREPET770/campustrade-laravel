@@ -11,7 +11,9 @@ class CatalogController extends Controller
 {
   public function index(Request $request)
   {
-    $kategoriList = Kategori::orderBy('nama_kategori')->get();
+    $kategoriList = Kategori::withCount(['produk' => fn($q) => $q->tersedia()])
+      ->orderBy('nama_kategori')
+      ->get();
 
     $produkQuery = Produk::tersedia()->with(['kategori', 'lokasi', 'gambar', 'penjual']);
 

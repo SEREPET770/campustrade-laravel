@@ -27,11 +27,13 @@
         <nav class="nav-links">
             <a href="{{ route('catalog.index') }}"
                 class="{{ request()->routeIs('catalog.index') ? 'active' : '' }}">Beranda</a>
-            <a href="{{ route('catalog.index') }}#produk-terbaru">Produk</a>
-            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Tentang</a>
+            <a href="{{ route('catalog.index') }}#kategori-populer">Kategori</a>
+            <a href="{{ route('produk.index') }}"
+                class="{{ request()->routeIs('produk.index') ? 'active' : '' }}">Lokasi</a>
+            <a href="{{ route('catalog.index') }}#tentang-kami">Tentang</a>
         </nav>
 
-        <form action="{{ route('catalog.index') }}" method="GET" class="nav-search-form">
+        <form action="{{ route('produk.index') }}" method="GET" class="nav-search-form">
             <input type="text" name="search" placeholder="Cari produk, kategori, atau kata kunci..."
                 value="{{ request('search') }}">
             <button type="submit" class="nav-search-btn">
@@ -82,7 +84,7 @@
     <footer class="landing-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <span class="footer-logo">CampusTrade</span>
+                <span class="footer-logo" style="justify-content:center">CampusTrade</span>
                 <p>Marketplace barang bekas mahasiswa.</p>
             </div>
             <div class="footer-menu">
@@ -91,8 +93,8 @@
                 <a href="{{ route('about') }}">Tentang</a>
             </div>
             <div class="footer-kontak">
-                <h4>Kontak</h4>
-                <p>support@campustrade.id</p>
+                <h4 style="text-align: center">Kontak</h4>
+                <p>Abid : 085792448847</p>
             </div>
         </div>
         <div class="footer-copyright">

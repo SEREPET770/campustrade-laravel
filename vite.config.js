@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/css/auth.css",
                 "resources/css/catalog.css",
+                "resources/css/produk.css",
                 "resources/js/app.js",
             ],
             refresh: true,

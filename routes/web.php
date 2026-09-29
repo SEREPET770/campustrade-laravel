@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\UserVerificationController;
+use App\Http\Controllers\ProdukController;
 
 Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
 Route::view('/tentang', 'about.index')->name('about');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
