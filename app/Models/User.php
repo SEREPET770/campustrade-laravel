@@ -11,7 +11,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     protected $table = 'users';
     protected $primaryKey = 'id_user';
-    public $timestamps = false; // tabel hanya punya created_at, tanpa updated_at
+    const UPDATED_AT = null;
 
     protected $fillable = [
         'nama',

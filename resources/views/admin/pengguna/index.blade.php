@@ -4,7 +4,8 @@
 @section('content')
     <div class="page-wrap">
         <div class="page-header">
-            <h1>Pengguna</h1>
+            <a href="{{ route('admin.dashboard') }}" class="pj-back">← Dashboard</a>
+            <h1>Kelola Pengguna</h1>
             <p>Verifikasi dan kelola akun pengguna CampusTrade</p>
         </div>
 
@@ -14,6 +15,7 @@
                     <tr>
                         <th>Pengguna</th>
                         <th>NIM</th>
+                        <th>Foto KTM</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -32,6 +34,14 @@
                             </td>
                             <td>{{ $user->nim }}</td>
                             <td>
+                                @if ($user->foto_ktm)
+                                    <a href="{{ asset('storage/ktm/' . $user->foto_ktm) }}" target="_blank"
+                                        rel="noopener">Lihat KTM</a>
+                                @else
+                                    -
+                                @endif
+                            </td>
+                            <td>
                                 @if ($user->status_verifikasi === 'terverifikasi')
                                     <span class="badge badge-success">Terverifikasi</span>
                                 @elseif ($user->status_verifikasi === 'ditolak')
@@ -44,12 +54,14 @@
                                 @if ($user->status_verifikasi === 'menunggu')
                                     <form method="POST" action="{{ route('admin.pengguna.approve', $user) }}"
                                         style="display:inline" onsubmit="return confirm('Verifikasi pengguna ini?')">
-                                        @csrf @method('PATCH')
+                                        @csrf
+                                        @method('PATCH')
                                         <button type="submit" class="btn btn-verify">✓ Verifikasi</button>
                                     </form>
                                     <form method="POST" action="{{ route('admin.pengguna.reject', $user) }}"
                                         style="display:inline" onsubmit="return confirm('Tolak pengguna ini?')">
-                                        @csrf @method('PATCH')
+                                        @csrf
+                                        @method('PATCH')
                                         <button type="submit" class="btn btn-reject">✕ Tolak</button>
                                     </form>
                                 @endif
@@ -57,7 +69,8 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" style="text-align:center; color:var(--color-ink-soft);">Tidak ada pengguna.
+                            <td colspan="5" style="text-align:center; color:var(--color-ink-soft);">
+                                Tidak ada pengguna.
                             </td>
                         </tr>
                     @endforelse

@@ -8,9 +8,12 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/css/app.css",
+                "resources/css/penjual.css",
                 "resources/css/auth.css",
                 "resources/css/catalog.css",
                 "resources/css/produk.css",
+                "resources/css/detail.css",
+                "resources/css/admin.css",
                 "resources/js/app.js",
             ],
             refresh: true,

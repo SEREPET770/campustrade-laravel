@@ -136,7 +136,6 @@ class ProdukSeeder extends Seeder
         'kekurangan' => $kurang,
         'brand' => $brand,
         'penulis_penerbit' => $penulis,
-        'status_tayang' => 'aktif',
         'created_at' => now()->subDays($umur),
       ]);
 

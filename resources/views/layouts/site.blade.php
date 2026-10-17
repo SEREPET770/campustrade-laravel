@@ -30,7 +30,8 @@
                 <summary><i class="fa-solid fa-layer-group"></i>Kategori</summary>
                 <div class="nav-dropdown-menu">
                     @forelse ($navKategori as $kat)
-                        href="{{ route('produk.index', ['kategori' => [$kat->id_kategori]]) }}">{{ $kat->nama_kategori }}</a>
+                        <a
+                            href="{{ route('produk.index', ['kategori' => [$kat->id_kategori]]) }}">{{ $kat->nama_kategori }}</a>
                     @empty
                         <span>Belum ada kategori</span>
                     @endforelse
@@ -41,7 +42,8 @@
                 <summary><i class="fa-solid fa-location-dot"></i>Lokasi</summary>
                 <div class="nav-dropdown-menu">
                     @forelse ($navLokasi as $lok)
-                        href="{{ route('produk.index', ['lokasi' => [$lok->id_lokasi]]) }}">{{ $lok->nama_lokasi }}</a>
+                        <a
+                            href="{{ route('produk.index', ['lokasi' => [$lok->id_lokasi]]) }}">{{ $lok->nama_lokasi }}</a>
                     @empty
                         <span>Belum ada lokasi</span>
                     @endforelse

@@ -42,6 +42,12 @@ class AuthController extends Controller
         ->onlyInput('email');
     }
 
+    if (! $user->status_aktif) {
+      return back()
+        ->with('notif', ['pesan' => 'Akun Anda dinonaktifkan. Silakan hubungi admin.', 'tipe' => 'error'])
+        ->onlyInput('email');
+    }
+
     Auth::login($user, $request->boolean('remember'));
     $request->session()->regenerate();
 

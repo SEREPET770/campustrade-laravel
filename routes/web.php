@@ -1,13 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Penjual\ProdukController as PenjualProdukController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\UserVerificationController;
+use App\Http\Controllers\Admin\ProdukVerificationController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\Admin\DashboardController;
+
 
 Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/produk/{produk}', [ProdukController::class, 'show'])->name('produk.show');
 Route::view('/tentang', 'about.index')->name('about');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -17,11 +22,24 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', fn() => view('dashboard.user'))->name('user.dashboard');
+
+    Route::prefix('penjual')->name('penjual.')->group(function () {
+        Route::get('/produk', [PenjualProdukController::class, 'index'])->name('produk.index');
+        Route::get('/produk/tambah', [PenjualProdukController::class, 'create'])->name('produk.create');
+        Route::post('/produk', [PenjualProdukController::class, 'store'])->name('produk.store');
+        Route::get('/produk/{produk}/ubah', [PenjualProdukController::class, 'edit'])->name('produk.edit');
+        Route::put('/produk/{produk}', [PenjualProdukController::class, 'update'])->name('produk.update');
+        Route::delete('/produk/{produk}', [PenjualProdukController::class, 'destroy'])->name('produk.destroy');
+    });
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', fn() => view('dashboard.admin'))->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/pengguna', [UserVerificationController::class, 'index'])->name('pengguna.index');
     Route::patch('/pengguna/{user}/approve', [UserVerificationController::class, 'approve'])->name('pengguna.approve');
     Route::patch('/pengguna/{user}/reject', [UserVerificationController::class, 'reject'])->name('pengguna.reject');
+    Route::get('/produk', [ProdukVerificationController::class, 'index'])->name('produk.index');
+    Route::get('/produk/{produk}', [ProdukVerificationController::class, 'show'])->name('produk.show');
+    Route::patch('/produk/{produk}/approve', [ProdukVerificationController::class, 'approve'])->name('produk.approve');
+    Route::patch('/produk/{produk}/reject', [ProdukVerificationController::class, 'reject'])->name('produk.reject');
 });

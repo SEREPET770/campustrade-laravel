@@ -79,4 +79,38 @@ class ProdukController extends Controller
       'urutkan' => $urutkan,
     ]);
   }
+  public function show(Produk $produk)
+  {
+    // Pengunjung hanya boleh melihat produk yang tampil di katalog
+    abort_unless($produk->status_produk === 'tersedia' && $produk->status_aktif, 404);
+
+    $produk->load(['kategori', 'lokasi', 'gambar', 'penjual']);
+
+    $produkSerupa = Produk::tersedia()
+      ->with(['lokasi', 'gambar'])
+      ->where('id_kategori', $produk->id_kategori)
+      ->where('id_produk', '!=', $produk->id_produk)
+      ->orderByDesc('created_at')
+      ->limit(5)
+      ->get();
+
+    $produkPenjual = Produk::tersedia()
+      ->with(['lokasi', 'gambar'])
+      ->where('id_user', $produk->id_user)
+      ->where('id_produk', '!=', $produk->id_produk)
+      ->orderByDesc('created_at')
+      ->limit(4)
+      ->get();
+
+    $jumlahAktif = Produk::tersedia()->where('id_user', $produk->id_user)->count();
+    $jumlahTerjual = Produk::where('id_user', $produk->id_user)->where('status_produk', 'terjual')->count();
+
+    return view('produk.show', compact(
+      'produk',
+      'produkSerupa',
+      'produkPenjual',
+      'jumlahAktif',
+      'jumlahTerjual'
+    ));
+  }
 }

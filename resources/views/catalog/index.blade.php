@@ -68,7 +68,7 @@
 
                 <div class="product-grid">
                     @forelse ($produkTerbaru as $item)
-                        <a href="#" class="product-card">
+                        <a href="{{ route('produk.show', $item) }}" class="product-card">
                             <div class="card-image">
                                 @if ($item->foto_utama)
                                     <img src="{{ $item->foto_utama }}" alt="{{ $item->nama_produk }}">
