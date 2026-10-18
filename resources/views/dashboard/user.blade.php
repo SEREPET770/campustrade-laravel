@@ -6,6 +6,12 @@
 @endpush
 
 @section('content')
+    @php
+        $pesananMasuk = \App\Models\Pesanan::where('id_penjual', auth()->id())
+            ->where('status', 'menunggu')
+            ->count();
+    @endphp
+
     <div class="pj-wrap">
         <div class="pj-head">
             <div>
@@ -15,9 +21,18 @@
         </div>
 
         <div class="pj-cards">
-            <a href="{{ route('penjual.produk.index') }}" class="pj-card pj-link-card">
-                <strong>Produk Saya</strong>
-                <span>Kelola produk yang Anda jual</span>
+            <a href="{{ route('pesanan.index') }}" class="pj-card pj-link-card">
+                <strong>Pesanan Saya</strong>
+                <span>Pantau pesanan COD yang Anda buat</span>
+            </a>
+            <a href="{{ route('penjual.pesanan.index') }}" class="pj-card pj-link-card">
+                <strong>
+                    Pesanan Masuk
+                    @if ($pesananMasuk > 0)
+                        <span class="pj-badge pj-badge-warning">{{ $pesananMasuk }} baru</span>
+                    @endif
+                </strong>
+                <span>Konfirmasi dan kelola pesanan dari pembeli</span>
             </a>
             <a href="{{ route('penjual.produk.create') }}" class="pj-card pj-link-card">
                 <strong>+ Tambah Produk</strong>

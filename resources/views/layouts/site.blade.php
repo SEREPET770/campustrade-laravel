@@ -68,7 +68,8 @@
         </form>
 
         <div class="nav-right">
-            <a href="#" class="nav-cart" aria-label="Keranjang" title="Keranjang">
+            <a href="{{ auth()->check() ? route('pesanan.index') : route('login') }}" class="nav-cart"
+                aria-label="Pesanan Saya" title="Pesanan Saya">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                     stroke-linejoin="round">
                     <circle cx="9" cy="20" r="1.5" />

@@ -218,18 +218,24 @@
 
                     <div class="action-card">
                         @auth
-                            <button type="button" class="btn-buy" data-aksi="Beli sekarang">
-                                <i class="fa-solid fa-bag-shopping"></i>Beli Sekarang
-                            </button>
-                            <div class="action-row">
-                                <button type="button" class="btn-cart" data-aksi="Keranjang">
-                                    <i class="fa-solid fa-cart-plus"></i>Masukkan Keranjang
-                                </button>
-                                <button type="button" class="btn-save" data-aksi="Simpan produk"
-                                    aria-label="Simpan produk">
-                                    <i class="fa-regular fa-heart"></i>
-                                </button>
-                            </div>
+                            @if ((int) auth()->id() === (int) $produk->id_user)
+                                <a href="{{ route('penjual.produk.edit', $produk) }}" class="btn-buy">
+                                    <i class="fa-solid fa-pen"></i>Ini produk Anda · Ubah
+                                </a>
+                            @else
+                                <a href="{{ route('pesanan.create', $produk) }}" class="btn-buy">
+                                    <i class="fa-solid fa-bag-shopping"></i>Beli Sekarang (COD)
+                                </a>
+                                <div class="action-row">
+                                    <button type="button" class="btn-cart" data-aksi="Keranjang">
+                                        <i class="fa-solid fa-cart-plus"></i>Masukkan Keranjang
+                                    </button>
+                                    <button type="button" class="btn-save" data-aksi="Simpan produk"
+                                        aria-label="Simpan produk">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            @endif
                         @else
                             <a href="{{ route('login') }}" class="btn-buy">
                                 <i class="fa-solid fa-bag-shopping"></i>Beli Sekarang

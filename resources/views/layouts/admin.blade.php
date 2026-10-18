@@ -15,6 +15,7 @@
     @php
         $menungguVerifikasi = \App\Models\User::where('role', 'user')->where('status_verifikasi', 'menunggu')->count();
         $admin = auth()->user();
+        $produkMenunggu = \App\Models\Produk::where('status_produk', 'menunggu')->count();
     @endphp
 
     <aside class="admin-sidebar">
@@ -36,12 +37,19 @@
             </a>
 
             {{-- Modul berikut belum dibangun: tampil nonaktif, aktifkan saat route-nya siap --}}
-            <span class="side-link is-disabled"><i class="fa-solid fa-cube"></i><span class="lbl">Manajemen
-                    Produk</span><span class="soon lbl">Segera</span></span>
+            <a href="{{ route('admin.produk.index') }}"
+                class="side-link {{ request()->routeIs('admin.produk.*') ? 'is-active' : '' }}">
+                <i class="fa-solid fa-cube"></i><span class="lbl">Manajemen Produk</span>
+                @if ($produkMenunggu > 0)
+                    <span class="count lbl">{{ $produkMenunggu }}</span>
+                @endif
+            </a>
             <span class="side-link is-disabled"><i class="fa-solid fa-tags"></i><span class="lbl">Kategori &amp;
                     Lokasi</span><span class="soon lbl">Segera</span></span>
-            <span class="side-link is-disabled"><i class="fa-solid fa-cart-shopping"></i><span
-                    class="lbl">Pesanan</span><span class="soon lbl">Segera</span></span>
+            <a href="{{ route('admin.pesanan.index') }}"
+                class="side-link {{ request()->routeIs('admin.pesanan.*') ? 'is-active' : '' }}">
+                <i class="fa-solid fa-cart-shopping"></i><span class="lbl">Pesanan</span>
+            </a>
             <span class="side-link is-disabled"><i class="fa-solid fa-file-lines"></i><span
                     class="lbl">Laporan</span><span class="soon lbl">Segera</span></span>
             <span class="side-link is-disabled"><i class="fa-solid fa-clock-rotate-left"></i><span class="lbl">Log
