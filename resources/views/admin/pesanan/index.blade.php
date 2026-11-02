@@ -13,7 +13,6 @@
     <div class="pj-wrap">
         <div class="pj-head">
             <div>
-                <a href="{{ route('admin.dashboard') }}" class="pj-back">← Dashboard</a>
                 <h1>Pesanan</h1>
                 <p>Pantau seluruh transaksi COD di CampusTrade</p>
             </div>

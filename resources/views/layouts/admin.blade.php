@@ -94,13 +94,24 @@
                         <span class="bell-count">{{ $menungguVerifikasi }}</span>
                     @endif
                 </a>
-                <div class="topbar-profile">
-                    <div class="avatar-circle">{{ mb_strtoupper(mb_substr($admin->nama, 0, 1)) }}</div>
-                    <div>
-                        <p class="profile-name">{{ $admin->nama }}</p>
-                        <p class="profile-role">Administrator</p>
+                <details class="topbar-menu">
+                    <summary class="topbar-profile">
+                        <div class="avatar-circle">{{ mb_strtoupper(mb_substr($admin->nama, 0, 1)) }}</div>
+                        <div>
+                            <p class="profile-name">{{ $admin->nama }}</p>
+                            <p class="profile-role">Administrator</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chev"></i>
+                    </summary>
+                    <div class="topbar-dropdown">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">
+                                <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                            </button>
+                        </form>
                     </div>
-                </div>
+                </details>
             </div>
         </header>
 
@@ -124,6 +135,11 @@
             container.appendChild(item);
             setTimeout(() => item.remove(), 3000);
         }
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('.topbar-menu[open]').forEach((menu) => {
+                if (!menu.contains(e.target)) menu.removeAttribute('open');
+            });
+        });
         @if (session('notif'))
             showPopup(@json(session('notif')['pesan']), @json(session('notif')['tipe']));
         @endif

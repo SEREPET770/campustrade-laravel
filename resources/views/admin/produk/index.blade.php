@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Verifikasi Produk | CampusTrade Admin')
 
 @push('styles')
@@ -27,7 +27,6 @@
     <div class="pj-wrap">
         <div class="pj-head">
             <div>
-                <a href="{{ route('admin.dashboard') }}" class="pj-back">← Dashboard</a>
                 <h1>Verifikasi Produk</h1>
                 <p>Periksa produk yang diunggah penjual sebelum tampil di katalog</p>
             </div>

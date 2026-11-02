@@ -40,10 +40,9 @@ class DashboardController extends Controller
 
     $perStatus = $pesananSaya()->selectRaw('status, COUNT(*) as total')->groupBy('status')->pluck('total', 'status');
     $donut = [
-      ['label' => 'Menunggu konfirmasi', 'value' => (int) ($perStatus['menunggu'] ?? 0), 'color' => '#f59e0b'],
-      ['label' => 'Dikonfirmasi', 'value' => (int) ($perStatus['dikonfirmasi'] ?? 0), 'color' => '#2f80ed'],
-      ['label' => 'Dalam pengiriman', 'value' => (int) ($perStatus['dikirim'] ?? 0), 'color' => '#8b5cf6'],
-      ['label' => 'Selesai', 'value' => (int) ($perStatus['selesai'] ?? 0), 'color' => '#10b981'],
+      ['label' => 'Dikonfirmasi', 'value' => (int) ($perStatus['dikonfirmasi'] ?? 0), 'color' => '#1d6fa5'],
+      ['label' => 'Dalam pengiriman', 'value' => (int) ($perStatus['dikirim'] ?? 0), 'color' => '#6c5ce7'],
+      ['label' => 'Selesai', 'value' => (int) ($perStatus['selesai'] ?? 0), 'color' => '#007c85'],
     ];
 
     // Grafik 7 hari terakhir.

@@ -19,7 +19,6 @@
     <div class="pj-wrap">
         <div class="pj-head">
             <div>
-                <a href="{{ route('user.dashboard') }}" class="pj-back">← Dashboard</a>
                 <h1>Produk Saya</h1>
                 <p>Kelola produk yang Anda jual di CampusTrade</p>
             </div>

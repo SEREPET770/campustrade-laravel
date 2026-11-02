@@ -1,10 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Pengguna | Admin')
 
 @section('content')
     <div class="page-wrap">
         <div class="page-header">
-            <a href="{{ route('admin.dashboard') }}" class="pj-back">← Dashboard</a>
             <h1>Kelola Pengguna</h1>
             <p>Verifikasi dan kelola akun pengguna CampusTrade</p>
         </div>
@@ -35,8 +34,8 @@
                             <td>{{ $user->nim }}</td>
                             <td>
                                 @if ($user->foto_ktm)
-                                    <a href="{{ asset('storage/ktm/' . $user->foto_ktm) }}" target="_blank"
-                                        rel="noopener">Lihat KTM</a>
+                                    <a href="{{ asset('storage/ktm/' . $user->foto_ktm) }}" target="_blank" rel="noopener"
+                                        class="link-ktm">Lihat KTM</a>
                                 @else
                                     -
                                 @endif
@@ -78,6 +77,6 @@
             </table>
         </div>
 
-        <div style="margin-top:16px;">{{ $users->links() }}</div>
+        <div style="margin-top:16px;">{{ $users->links('pagination::bootstrap-4') }}</div>
     </div>
 @endsection

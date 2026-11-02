@@ -18,7 +18,6 @@
     <div class="pj-wrap">
         <div class="pj-head">
             <div>
-                <a href="{{ route('user.dashboard') }}" class="pj-back">← Dashboard</a>
                 <h1>Pesanan Saya</h1>
                 <p>Pantau pesanan COD yang Anda buat</p>
             </div>

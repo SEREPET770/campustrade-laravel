@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Periksa Produk | CampusTrade Admin')
 
 @push('styles')

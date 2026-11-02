@@ -47,6 +47,9 @@ a {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
 }
 .side-link {
     display: flex;
@@ -875,95 +878,47 @@ a.stat-card:hover {
     margin-top: 0;
 }
 
-/* Panel promo (dashboard penjual) */
-.promo-panel {
+/* Halaman admin lain: paginasi, tautan KTM, judul seragam */
+.admin-content .pagination {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: linear-gradient(135deg, #e8f7f3, #f6fdfb);
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
 }
-.promo-panel .promo-ic {
-    font-size: 44px;
-    color: var(--c-primary);
-}
-.promo-panel h2 {
-    margin: 12px 0 6px;
-    font-size: 18px;
-    color: var(--c-primary-darker);
-}
-.promo-panel p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #4a6a64;
-}
-.btn-cta {
-    align-self: flex-start;
-    margin-top: 16px;
-    padding: 10px 18px;
+.admin-content .page-link {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid var(--c-line);
     border-radius: 8px;
+    background: #fff;
+    color: var(--c-primary);
+    font-size: 13px;
+}
+.admin-content .page-item.active .page-link {
+    border-color: var(--c-primary);
     background: var(--c-primary);
     color: #fff;
-    font-size: 13px;
-    font-weight: 700;
 }
-
-/* ===== Tema penjual (hijau tosca) ===== */
-.seller-body {
-    --c-primary: #0fa889;
-    --c-primary-dark: #0b8a71;
-    --c-primary-darker: #0d4d44;
-    background: #f3fbf9;
+.admin-content .page-item.disabled .page-link {
+    color: var(--c-soft);
 }
-.seller-body .admin-sidebar {
-    color: #0d4d44;
-    background: linear-gradient(180deg, #e3f6f1 0%, #f6fcfa 100%);
-    border-right: 1px solid var(--c-line);
+.link-ktm {
+    color: var(--c-primary);
+    font-weight: 600;
 }
-.seller-body .side-logo {
-    color: #0d4d44;
+.link-ktm:hover {
+    text-decoration: underline;
 }
-.seller-body .side-logo .logo-trade {
-    color: #0fa889;
+/* Judul halaman produk/pesanan admin disamakan dengan .page-header */
+.admin-content .pj-head h1 {
+    font-size: 28px;
+    color: var(--c-primary-darker);
 }
-.seller-body .side-link {
-    color: #355a54;
-}
-.seller-body .side-link:hover {
-    background: rgba(15, 168, 137, 0.1);
-}
-.seller-body .side-link.is-active {
-    color: #fff;
-    background: linear-gradient(135deg, #0fa889, #19c3a0);
-    box-shadow: 0 6px 16px rgba(15, 168, 137, 0.3);
-}
-.seller-body .side-profile {
-    background: #fff;
-    border: 1px solid var(--c-line);
-}
-.seller-body .side-profile .avatar-circle {
-    background: linear-gradient(135deg, #0fa889, #0b8a71);
-    color: #fff;
-}
-.seller-body .side-profile small {
-    color: #6b8a84;
-}
-.seller-body .side-promo {
-    background: #fff;
-    border: 1px solid var(--c-line);
-    color: #4a6a64;
-}
-.seller-body .side-promo strong {
-    color: #0d4d44;
-}
-.seller-body .side-promo i {
-    color: #0fa889;
-}
-.seller-body .side-logout {
-    border-top-color: var(--c-line);
-}
-.seller-body .top-search {
-    background: #e9f7f3;
+.admin-content .pj-head p {
+    font-size: 14px;
+    color: var(--c-primary);
 }
 
 /* Responsif tambahan */
@@ -993,4 +948,61 @@ a.stat-card:hover {
     .donut-box {
         margin: 0 auto;
     }
+}
+
+@media (max-height: 760px) {
+    .side-promo {
+        display: none;
+    }
+}
+
+/* Menu profil di topbar (berisi Keluar) */
+.topbar-menu {
+    position: relative;
+}
+.topbar-menu summary {
+    list-style: none;
+    cursor: pointer;
+}
+.topbar-menu summary::-webkit-details-marker {
+    display: none;
+}
+.topbar-profile .chev {
+    margin-left: 4px;
+    font-size: 11px;
+    color: var(--c-soft);
+}
+.topbar-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 170px;
+    padding: 6px;
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(20, 33, 61, 0.14);
+    z-index: 60;
+}
+.topbar-dropdown form {
+    margin: 0;
+}
+.topbar-dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: #d32f2f;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+.topbar-dropdown button:hover {
+    background: #fdecec;
 }

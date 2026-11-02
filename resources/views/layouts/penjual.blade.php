@@ -11,7 +11,7 @@
     @stack('styles')
 </head>
 
-<body class="admin-body seller-body">
+<body class="admin-body">
     @php
         $user = auth()->user();
         $pesananMasuk = \App\Models\Pesanan::where('id_penjual', $user->getKey())->where('status', 'menunggu')->count();
@@ -84,13 +84,24 @@
                         <span class="bell-count">{{ $pesananMasuk }}</span>
                     @endif
                 </a>
-                <div class="topbar-profile">
-                    <div class="avatar-circle">{{ mb_strtoupper(mb_substr($user->nama, 0, 1)) }}</div>
-                    <div>
-                        <p class="profile-name">{{ $user->nama }}</p>
-                        <p class="profile-role">Penjual</p>
+                <details class="topbar-menu">
+                    <summary class="topbar-profile">
+                        <div class="avatar-circle">{{ mb_strtoupper(mb_substr($user->nama, 0, 1)) }}</div>
+                        <div>
+                            <p class="profile-name">{{ $user->nama }}</p>
+                            <p class="profile-role">Penjual</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chev"></i>
+                    </summary>
+                    <div class="topbar-dropdown">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">
+                                <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                            </button>
+                        </form>
                     </div>
-                </div>
+                </details>
             </div>
         </header>
 
