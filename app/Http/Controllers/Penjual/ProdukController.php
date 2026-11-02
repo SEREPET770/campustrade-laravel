@@ -32,12 +32,16 @@ class ProdukController extends Controller
     'Ekspedisi' => 15000,
   ];
 
-  public function index(): View
+  public function index(Request $request): View
   {
+    $q = trim((string) $request->input('q', ''));
+
     $produk = Produk::where('id_user', Auth::id())
+      ->when($q !== '', fn($query) => $query->where('nama_produk', 'like', '%' . $q . '%'))
       ->with(['kategori', 'gambar'])
       ->orderByDesc('created_at')
-      ->paginate(10);
+      ->paginate(10)
+      ->withQueryString();
 
     return view('penjual.produk.index', compact('produk'));
   }

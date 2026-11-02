@@ -622,3 +622,375 @@ a {
         flex-direction: column;
     }
 }
+
+/* ===== Dashboard: tambahan ===== */
+.stat-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+a.stat-card {
+    color: inherit;
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+a.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(20, 33, 61, 0.08);
+}
+.stat-value.is-money {
+    font-size: 22px;
+}
+.dash-grid + .dash-grid {
+    margin-top: 22px;
+}
+.dash-grid-wide {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+}
+.admin-content .pj-wrap {
+    padding: 0;
+    max-width: 1200px;
+}
+
+.badge-info {
+    background: #e6f1fb;
+    color: #1d6fa5;
+}
+.badge-muted {
+    background: #eceff4;
+    color: #5b6678;
+}
+
+/* Tab rentang waktu */
+.range-tabs {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 8px;
+    background: #eef2f7;
+}
+.range-tab {
+    padding: 5px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: #55627a;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.range-tab.is-active {
+    background: var(--c-primary);
+    color: #fff;
+}
+
+/* Grafik garis + donat */
+.chart-box {
+    width: 100%;
+}
+.chart-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.chart-grid {
+    stroke: #e9eef5;
+    stroke-width: 1;
+}
+.chart-axis {
+    fill: var(--c-soft);
+    font-size: 11px;
+}
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #55627a;
+}
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 7px;
+    border-radius: 50%;
+}
+
+.donut-wrap {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+.donut-box {
+    flex: 0 0 190px;
+    max-width: 190px;
+}
+.donut-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.donut-total {
+    fill: var(--c-primary-darker);
+    font-size: 30px;
+    font-weight: 800;
+}
+.donut-label {
+    fill: var(--c-soft);
+    font-size: 11px;
+}
+.donut-legend {
+    flex: 1;
+    min-width: 180px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 13px;
+}
+.donut-legend li {
+    display: flex;
+    align-items: center;
+}
+.donut-legend .lg-text {
+    flex: 1;
+}
+.donut-legend strong {
+    margin-right: 12px;
+}
+.donut-legend .pct {
+    min-width: 46px;
+    text-align: right;
+    color: var(--c-soft);
+}
+
+/* Ikon aktivitas */
+.act-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    font-size: 13px;
+    background: #e6f1fb;
+    color: var(--c-primary);
+}
+.act-icon.is-ok {
+    background: #e3f6ea;
+    color: #1f8a4c;
+}
+.act-icon.is-no {
+    background: #fde8e8;
+    color: #d32f2f;
+}
+.act-icon.is-new {
+    background: #fff1d6;
+    color: #c77700;
+}
+.act-icon.is-info {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+/* Pencarian topbar */
+.top-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 340px;
+    max-width: 40vw;
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #eef4fb;
+}
+.top-search i {
+    color: var(--c-soft);
+}
+.top-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    font: inherit;
+    font-size: 13px;
+    color: var(--c-ink);
+}
+
+/* Kartu profil + promo di sidebar */
+.side-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 4px 18px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.side-profile .avatar-circle {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--c-primary-darker);
+}
+.side-profile p {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+}
+.side-profile small {
+    display: block;
+    margin-top: 2px;
+    font-size: 11.5px;
+    color: #b6c8de;
+}
+.side-promo {
+    margin: auto 4px 12px;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #cfe0f3;
+}
+.side-promo i {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 38px;
+    color: #38b6ff;
+}
+.side-promo strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #fff;
+}
+.side-promo ~ .side-logout {
+    margin-top: 0;
+}
+
+/* Panel promo (dashboard penjual) */
+.promo-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #e8f7f3, #f6fdfb);
+}
+.promo-panel .promo-ic {
+    font-size: 44px;
+    color: var(--c-primary);
+}
+.promo-panel h2 {
+    margin: 12px 0 6px;
+    font-size: 18px;
+    color: var(--c-primary-darker);
+}
+.promo-panel p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4a6a64;
+}
+.btn-cta {
+    align-self: flex-start;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ===== Tema penjual (hijau tosca) ===== */
+.seller-body {
+    --c-primary: #0fa889;
+    --c-primary-dark: #0b8a71;
+    --c-primary-darker: #0d4d44;
+    background: #f3fbf9;
+}
+.seller-body .admin-sidebar {
+    color: #0d4d44;
+    background: linear-gradient(180deg, #e3f6f1 0%, #f6fcfa 100%);
+    border-right: 1px solid var(--c-line);
+}
+.seller-body .side-logo {
+    color: #0d4d44;
+}
+.seller-body .side-logo .logo-trade {
+    color: #0fa889;
+}
+.seller-body .side-link {
+    color: #355a54;
+}
+.seller-body .side-link:hover {
+    background: rgba(15, 168, 137, 0.1);
+}
+.seller-body .side-link.is-active {
+    color: #fff;
+    background: linear-gradient(135deg, #0fa889, #19c3a0);
+    box-shadow: 0 6px 16px rgba(15, 168, 137, 0.3);
+}
+.seller-body .side-profile {
+    background: #fff;
+    border: 1px solid var(--c-line);
+}
+.seller-body .side-profile .avatar-circle {
+    background: linear-gradient(135deg, #0fa889, #0b8a71);
+    color: #fff;
+}
+.seller-body .side-profile small {
+    color: #6b8a84;
+}
+.seller-body .side-promo {
+    background: #fff;
+    border: 1px solid var(--c-line);
+    color: #4a6a64;
+}
+.seller-body .side-promo strong {
+    color: #0d4d44;
+}
+.seller-body .side-promo i {
+    color: #0fa889;
+}
+.seller-body .side-logout {
+    border-top-color: var(--c-line);
+}
+.seller-body .top-search {
+    background: #e9f7f3;
+}
+
+/* Responsif tambahan */
+@media (max-width: 1100px) {
+    .stat-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .dash-grid-wide {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+@media (max-width: 900px) {
+    .side-promo,
+    .side-profile div {
+        display: none;
+    }
+    .side-profile {
+        justify-content: center;
+        background: none;
+        border: 0;
+        padding: 0;
+    }
+    .top-search {
+        width: 100%;
+        max-width: none;
+    }
+    .donut-box {
+        margin: 0 auto;
+    }
+}

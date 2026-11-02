@@ -23,6 +23,14 @@
             <span class="logo-campus">campus</span><span class="logo-trade">trade</span>
         </a>
 
+        <div class="side-profile">
+            <div class="avatar-circle">{{ mb_strtoupper(mb_substr($admin->nama, 0, 1)) }}</div>
+            <div>
+                <p>{{ $admin->nama }}</p>
+                <small>Administrator</small>
+            </div>
+        </div>
+
         <nav class="side-nav">
             <a href="{{ route('admin.dashboard') }}"
                 class="side-link {{ request()->routeIs('admin.dashboard') ? 'is-active' : '' }}">
@@ -58,6 +66,12 @@
                     Sistem</span><span class="soon lbl">Segera</span></span>
         </nav>
 
+        <div class="side-promo">
+            <i class="fa-solid fa-laptop-code"></i>
+            <strong>CampusTrade</strong>
+            Bersama membangun lingkungan kampus yang lebih produktif.
+        </div>
+
         <form method="POST" action="{{ route('logout') }}" class="side-logout">
             @csrf
             <button type="submit" class="side-link">
@@ -68,7 +82,11 @@
 
     <div class="admin-main">
         <header class="admin-topbar">
-            <span class="topbar-title">Panel Admin</span>
+            <form method="GET" action="{{ route('admin.produk.index') }}" class="top-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" name="q" value="{{ request('q') }}" placeholder="Cari produk..."
+                    aria-label="Cari produk">
+            </form>
             <div class="topbar-right">
                 <a href="{{ route('admin.pengguna.index') }}" class="bell" aria-label="Pengguna menunggu verifikasi">
                     <i class="fa-regular fa-bell"></i>

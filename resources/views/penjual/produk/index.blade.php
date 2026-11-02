@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.penjual')
 @section('title', 'Produk Saya')
 
 @push('styles')

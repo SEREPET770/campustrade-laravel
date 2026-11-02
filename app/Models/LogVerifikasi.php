@@ -26,4 +26,9 @@ class LogVerifikasi extends Model
   {
     return $this->belongsTo(User::class, 'verified_by', 'id_user');
   }
+
+  public function produk(): BelongsTo
+  {
+    return $this->belongsTo(Produk::class, 'id_produk', 'id_produk');
+  }
 }

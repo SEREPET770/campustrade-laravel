@@ -17,7 +17,10 @@ class ProdukVerificationController extends Controller
 
   public function index(Request $request): View
   {
-    $status = $request->input('status', 'menunggu');
+    $q = trim((string) $request->input('q', ''));
+
+    // Saat mencari, tampilkan semua status kecuali tab dipilih.
+    $status = $request->input('status', $q !== '' ? 'semua' : 'menunggu');
     if (! in_array($status, self::STATUS, true)) {
       $status = 'semua';
     }
@@ -28,10 +31,9 @@ class ProdukVerificationController extends Controller
       $query->where('status_produk', $status);
     }
 
-    // Antrian verifikasi: yang paling lama menunggu didahulukan.
-    $status === 'menunggu'
-      ? $query->orderBy('created_at')
-      : $query->orderByDesc('created_at');
+    if ($q !== '') {
+      $query->where('nama_produk', 'like', '%' . $q . '%');
+    }
 
     return view('admin.produk.index', [
       'produk' => $query->paginate(15)->withQueryString(),

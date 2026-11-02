@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.penjual')
 @section('title', $produk->exists ? 'Ubah Produk' : 'Tambah Produk')
 
 @push('styles')

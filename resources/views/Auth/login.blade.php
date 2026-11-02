@@ -23,8 +23,10 @@
 
 
             @if (session('notif'))
-                @php($notif = session('notif'))
-                @php($notifIcon = ['success' => '✓', 'error' => '!', 'warning' => '!', 'info' => 'ⓘ'])
+                @php
+                    $notif = session('notif');
+                    $notifIcon = ['success' => '✓', 'error' => '!', 'warning' => '!', 'info' => 'ⓘ'];
+                @endphp
                 <div class="alert alert-{{ $notif['tipe'] }}">
                     <span>{{ $notifIcon[$notif['tipe']] ?? '•' }}</span>
                     {{ $notif['pesan'] }}
@@ -100,6 +102,66 @@
                 Belum punya akun?
                 <a href="{{ route('register') }}">Daftar</a>
             </p>
+
+            @env('local')
+                @php
+                    $akunUji = [
+                        ['Admin', 'admin@campustrade.test'],
+                        ['Rizky Aditya · penjual/pembeli', 'rizky@campustrade.test'],
+                        ['Dinda Salsabila · penjual/pembeli', 'dinda@campustrade.test'],
+                        ['Fajar Maulana · penjual/pembeli', 'fajar@campustrade.test'],
+                        ['Nabila Rahma · penjual/pembeli', 'nabila@campustrade.test'],
+                    ];
+                    $akunTolak = [
+                        ['Menunggu verifikasi', 'uji.menunggu@campustrade.test'],
+                        ['Akun ditolak', 'uji.ditolak@campustrade.test'],
+                        ['Akun nonaktif', 'uji.nonaktif@campustrade.test'],
+                    ];
+                @endphp
+
+                <div class="demo-accounts">
+                    <p class="demo-title">Akun uji (hanya tampil di lokal)</p>
+                    <ul>
+                        @foreach ($akunUji as [$peran, $email])
+                            <li>
+                                <div>
+                                    <strong>{{ $peran }}</strong>
+                                    <span>{{ $email }}</span>
+                                </div>
+                                <button type="button" class="demo-fill" data-email="{{ $email }}">Isi</button>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                    <details class="demo-more">
+                        <summary>Akun uji penolakan login</summary>
+                        <ul>
+                            @foreach ($akunTolak as [$peran, $email])
+                                <li>
+                                    <div>
+                                        <strong>{{ $peran }}</strong>
+                                        <span>{{ $email }}</span>
+                                    </div>
+                                    <button type="button" class="demo-fill" data-email="{{ $email }}">Isi</button>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </details>
+
+                    <p class="demo-pass">Password semua akun: <code>password</code></p>
+                </div>
+
+                <script>
+                    document.querySelectorAll('.demo-fill').forEach((btn) => {
+                        btn.addEventListener('click', () => {
+                            document.getElementById('email').value = btn.dataset.email;
+                            const password = document.getElementById('password');
+                            password.value = 'password';
+                            password.focus();
+                        });
+                    });
+                </script>
+            @endenv
         </div>
     </main>
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserVerificationController;
 use App\Http\Controllers\Admin\ProdukVerificationController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\DashboardController as UserDashboardController;
 
 
 Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
@@ -24,7 +25,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', fn() => view('dashboard.user'))->name('user.dashboard');
+    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/produk/{produk}/pesan', [PesananController::class, 'create'])->name('pesanan.create');
     Route::post('/produk/{produk}/pesan', [PesananController::class, 'store'])->name('pesanan.store');
     Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan.index');
